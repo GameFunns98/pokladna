@@ -246,7 +246,6 @@ export default function Home() {
         <p>⏰ Do: {shiftEnd.toLocaleTimeString()}</p>
         <p>⏳ Délka směny: {formatDuration(shiftStart, shiftEnd)}</p>
         <p>💰 Prodej za směnu celkový: {totalSales.toFixed(2)} $</p>
-        <p>📊 Celková aktivita: {diffMin} min</p>
 
         <button
           style={{
