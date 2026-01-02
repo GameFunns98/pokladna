@@ -217,6 +217,12 @@ export default function Home() {
 
   // Pokud je směna ukončená, zobraz přehled
   if (shiftEnd) {
+    const datum = shiftStart.toLocaleDateString("cs-CZ"); // formát dd.mm.yyyy
+    const od = shiftStart.toLocaleTimeString("cs-CZ", { hour: "2-digit", minute: "2-digit" }); // hh:mm
+    const doCas = shiftEnd.toLocaleTimeString("cs-CZ", { hour: "2-digit", minute: "2-digit" });
+
+    const diffMs = shiftEnd - shiftStart;
+    const diffMin = Math.round(diffMs / 60000);
     return (
       <div
         style={{
@@ -240,7 +246,7 @@ export default function Home() {
         <p>⏰ Do: {shiftEnd.toLocaleTimeString()}</p>
         <p>⏳ Délka směny: {formatDuration(shiftStart, shiftEnd)}</p>
         <p>💰 Prodej za směnu celkový: {totalSales.toFixed(2)} $</p>
-        <p>📊 Celková aktivita: {ordersCount} objednávek</p>
+        <p>📊 Celková aktivita: {diffMin} min</p>
 
         <button
           style={{
