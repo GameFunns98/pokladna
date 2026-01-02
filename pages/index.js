@@ -320,12 +320,8 @@ export default function Home() {
         <tbody>
           {položky.map((položka) => (
             <tr key={položka}>
-              <td style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                {(položka.includes("Burger")) && <IconBurger width={32} height={32} />}
-                {položka === "Fries" && <IconFries width={32} height={32} />}
-                {položka === "Pití" && <IconDrink width={32} height={32} />}
-                <span>{položka}</span>
-              </td>
+              <td>{položka}</td>
+              <td>{ceny[položka]}</td>
               <td>
                 <button
                   onClick={() => změňMnožství(položka, ostatníPolozky[položka] - 1)}
